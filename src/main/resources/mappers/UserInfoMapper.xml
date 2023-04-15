@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.mapper.UserInfoMapper">
+    <resultMap id="userInfo" type="edu.nf.entity.UserInfo">
+        <result property="userId" column="user_id"></result>
+        <result property="userName" column="user_name"></result>
+        <result property="age" column="age"></result>
+        <collection property="orderInfoList" ofType="edu.nf.entity.OrderInfo">
+            <result property="orderId" column="order_id"></result>
+            <result property="userUid" column="user_uid"></result>
+            <result property="orderNumber" column="order_number"></result>
+        </collection>
+    </resultMap>
+
+    <select id="listUserInfoAndOrder" resultMap="userInfo">
+        select * from user_info as ui
+            left join order_info oi on ui.user_id = oi.user_uid
+    </select>
+</mapper>

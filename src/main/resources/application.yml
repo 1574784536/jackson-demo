@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /jacksongege
+spring:
+  application:
+    name: jackson
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jackson?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    druid:
+      maxActive: 1000
+      initialSize: 10
+      maxWait: 1000
+      minIdle: 10
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      maxPoolPreparedStatementPerConnectionSize: 0
+
+mybatis-plus:
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: edu.nf.entity
