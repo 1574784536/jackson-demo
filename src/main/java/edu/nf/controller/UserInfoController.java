@@ -1,5 +1,6 @@
 package edu.nf.controller;
 
+import edu.nf.entity.TestVo;
 import edu.nf.entity.UserInfo;
 import edu.nf.service.IUserInfoService;
 import edu.nf.vo.ResultVO;
@@ -36,6 +37,9 @@ public class UserInfoController extends BaseController {
      */
     @RequestMapping(value = "/listUserInfoAndOrder", method = RequestMethod.GET)
     public ResultVO<List<UserInfo>> listUserInfoAndOrder() {
+        TestVo vo = new TestVo();
+        vo.setName("123");
+        vo.setAddress("345");
         return success(userInfoService.listUserInfoAndOrder());
     }
 
